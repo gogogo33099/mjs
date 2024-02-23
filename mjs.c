@@ -2230,7 +2230,9 @@ extern "C" {
 #include <stddef.h>
 #include <stdio.h>
 
-#if defined(_WIN32) && _MSC_VER < 1700
+//cat 
+// #if defined(_WIN32) && _MSC_VER < 1700
+#if defined(_MSC_VER) && _MSC_VER < 1700
 typedef int bool;
 enum { false = 0, true = 1 };
 #else
@@ -2636,8 +2638,9 @@ void ffi_set_float(struct ffi_arg *arg, float v);
 /* Amalgamated: #include "common/cs_dbg.h" */
 /* Amalgamated: #include "common/cs_file.h" */
 /* Amalgamated: #include "common/mbuf.h" */
-
-#if defined(_WIN32) && _MSC_VER < 1700
+//cat
+// #if defined(_WIN32) && _MSC_VER < 1700
+#if defined(_MSC_VER) && _MSC_VER < 1700
 typedef signed char int8_t;
 typedef unsigned char uint8_t;
 typedef int int32_t;
@@ -4859,8 +4862,10 @@ size_t mg_match_prefix(const char *pattern, int pattern_len, const char *str) {
 #define WEAK
 #endif
 #endif
-
-#ifdef _WIN32
+//cat 
+// #ifdef _WIN32
+//defined(_MSC_VER)
+#ifdef _MSC_VER
 #undef snprintf
 #undef vsnprintf
 #define snprintf cs_win_snprintf
